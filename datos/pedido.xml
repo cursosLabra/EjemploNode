@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pedido>
+<producto id="x23">
+ <nombre>Grapadora</nombre>
+</producto>
+<producto id="r21">
+ <nombre>Calculadora</nombre>
+</producto>
+</pedido>
