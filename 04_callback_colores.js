@@ -1,10 +1,10 @@
-function asincrona(callback) {
+function prueba(callback) {
  setTimeout(callback, 200);
 }
 
 var color = 'azul';
 
-asincrona(function() {
+prueba(function() {
   console.log('El color es ' + color);
 });
 
