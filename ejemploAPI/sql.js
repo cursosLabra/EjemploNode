@@ -1,24 +1,14 @@
 var express    = require('express');
 var bodyParser = require('body-parser');
-var app        = express();
+var mysql      = require('mysql');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port     = process.env.PORT || 8080; 
+var port     = process.env.PORT || 3000; 
 
-var router = express.Router();
 
-router.use(function(req, res, next) {
-	console.log('router funcionando...');
-	next();
-});
-
-router.get('/', function(req, res) {
-	res.json({ message: 'Bienvenido al API!' });	
-});
-
-var mysql      = require('mysql');
+var app        = express();
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'node',
@@ -35,3 +25,14 @@ connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
 
 
 connection.end();
+
+var router = express.Router();
+
+router.use(function(req, res, next) {
+	console.log('router funcionando...');
+	next();
+});
+
+router.get('/', function(req, res) {
+	res.json({ message: 'Bienvenido al API!' });	
+});

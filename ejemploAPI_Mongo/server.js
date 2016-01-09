@@ -5,7 +5,7 @@ var app        = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port     = process.env.PORT || 8080; 
+var port     = process.env.PORT || 3000; 
 
 var mongoose   = require('mongoose');
 mongoose.connect('mongodb://@localhost:27017/test'); 

@@ -12,4 +12,3 @@ function Rect(a, b) {
 
 module.exports = Rect;
 
-xx = 2;
