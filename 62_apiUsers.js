@@ -1,6 +1,6 @@
-var express = require('express');
-var app = express();
-var users = require('./users');
+const express = require('express');
+const app = express();
+const users = require('./users');
 
 app.get('/users', function (req,res) {
 	res.format({

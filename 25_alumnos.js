@@ -4,7 +4,7 @@
  */
 
 // Internamente se representan como una sola lista
-var alumnos = []; 
+let alumnos = [];
 
 // Se inicializan un par de valores
 alumnos.push({ "nombre": "pepe", "edad": 23 });
@@ -13,7 +13,7 @@ alumnos.push({ "nombre": "Luis", "edad": 34 });
 // Funciones que se exportan
 
 exports.getAlumno = function(id,next) {
-  var alumno = alumnos[id];
+  let alumno = alumnos[id];
   if (alumno == undefined) 
 	  next("Cannot find record with id " + id);
   else 

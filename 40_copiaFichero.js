@@ -1,5 +1,5 @@
-var fs = require('fs');
-var input = process.argv[2], output = process.argv[3];
+const fs = require('fs');
+const input = process.argv[2], output = process.argv[3];
 
 fs.readFile(input, 'utf8', function(err, data) {
  if (err) throw "No se puede leer " + input + "\n" + err;

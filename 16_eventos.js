@@ -1,8 +1,12 @@
-var http=require('http');
-var options =
-    { hostname: 'www.uniovi.es', port: 80, path: '/', method: 'GET' };
+const http=require('http');
+const options = {
+    hostname: 'www.uniovi.es',
+    port: 80,
+    path: '/',
+    method: 'GET'
+};
 
-var total='';
+let total='';
 var req = http.request(options, function(response) {
     response.on("data", function(datos) {
         total+=datos;

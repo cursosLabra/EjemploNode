@@ -1,10 +1,10 @@
-var http = require('http'),
-    fs = require('fs'),
-    url = require('url'),
-    qs = require('querystring');
-var Corrector = require("./Corrector");
+const http = require('http'),
+      fs = require('fs'),
+      url = require('url'),
+      qs = require('querystring');
+const Corrector = require("./Corrector");
 
-var server = http.createServer(function(req, res) {
+const server = http.createServer(function(req, res) {
 			switch (req.method) {
 			case 'POST':
 				var body = '';

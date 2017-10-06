@@ -1,5 +1,5 @@
-var http = require('http');
-var qs = require('querystring')
+const http = require('http');
+const qs = require('querystring')
 
 http.createServer(procesa).listen(3000);
 

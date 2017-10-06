@@ -1,4 +1,4 @@
-var numero = Math.floor(Math.random() * 100);
+const numero = Math.floor(Math.random() * 100);
 console.log("Numero a adivinar: " + numero);
 adivina(numero, function() {
 	console.log("Acertaste!");
@@ -20,7 +20,7 @@ function adivina(numero,callback) {
 }
 
 function pideNum(msg, callback) {
-	 var stdin = process.stdin, stdout = process.stdout;
+	 const stdin = process.stdin, stdout = process.stdout;
 	 
 	 stdin.resume();
 	 stdout.write(msg + ": ");

@@ -17,6 +17,3 @@ function pideNum(msg, callback) {
 	 });
 }
 
-function df(s) {
-	
-}

@@ -1,9 +1,9 @@
-var http = require('http'),
-    fs = require('fs'),
-    url = require('url'),
-    qs = require('querystring');
+const http = require('http'),
+      fs = require('fs'),
+      url = require('url'),
+      qs = require('querystring');
 
-var server = http.createServer(function(req, res) {
+const server = http.createServer(function(req, res) {
 			switch (req.method) {
 			case 'POST':
 				var body = '';

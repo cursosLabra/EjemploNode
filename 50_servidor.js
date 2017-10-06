@@ -1,5 +1,5 @@
-var http=require('http');
-var server = http.createServer();
+const http=require('http');
+const server = http.createServer();
 server.on('request', procesa);
 server.listen(3000);
 

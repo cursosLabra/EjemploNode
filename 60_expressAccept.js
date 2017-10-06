@@ -1,6 +1,6 @@
-var express = require('express');
-var app = express();
-var port = 3000;
+const express = require('express');
+const app = express();
+const port = 3000;
 
 app.get('/usuario/:nombre', function(req, res){
 	console.log(req.route);

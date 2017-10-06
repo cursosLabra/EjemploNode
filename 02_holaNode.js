@@ -1,6 +1,6 @@
-var http = require('http');
-var host = '127.0.0.1';
-var port = 3000;
+const http = require('http');
+const host = '127.0.0.1';
+const port = 3000;
 
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});

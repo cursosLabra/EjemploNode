@@ -1,5 +1,5 @@
-var fs = require('fs');
-var input = "fichero.txt";
+const fs = require('fs');
+const input = "fichero.txt";
 
 fs.readFile(input, 'utf8', function (err, datos) {
 	 if (err) throw err;

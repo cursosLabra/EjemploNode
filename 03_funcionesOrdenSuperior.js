@@ -1,8 +1,8 @@
-let suma3 = function(x) {
+function suma3(x) { 
   return x + 3; 
 }
 
-let aplica2 = function(f,x) {
+function aplica2(f,x) { 
   return f (f (x)); 
 };
 
