@@ -1,0 +1,28 @@
+{
+  "name": "ejemplonode",
+  "version": "1.0.0",
+  "description": "Ejemplos de NodeJs ",
+  "main": "01_holaNodeMinimalista.js",
+  "dependencies": {
+    "express": "^4.16.1",
+    "formidable": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/labra/EjemploNode.git"
+  },
+  "keywords": [
+    "NodeJs",
+    "Ejemplos"
+  ],
+  "author": "Jose Labra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/labra/EjemploNode/issues"
+  },
+  "homepage": "https://github.com/labra/EjemploNode#readme"
+}
