@@ -8,20 +8,21 @@ function procesa(req, resp) {
 }
 
 function saluda(post, req, resp) {
+    console.log(post);
 	resp.end(" nombre: " + post.nombre + 
 			", edad: " + post.edad);
 }
 
 function parseBody(req, resp, next) {
 	var body = '';
-	req.on('data', function(data) {
+	req.on('data', data => {
 		body += data;
 		if (body.length > 1e6) {
 			console.log("Body too big!");
 			req.connection.destroy();
 		}
 	});
-	req.on('end', function() {
+	req.on('end', () => {
 		var post = qs.parse(body);
 		next(post, req, resp);
 	});

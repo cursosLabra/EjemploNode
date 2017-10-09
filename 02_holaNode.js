@@ -1,11 +1,13 @@
 const http = require('http');
-const host = '127.0.0.1';
-const port = 3000;
+const server = http.createServer();
+server.on('request',procesa);
+server.listen(3000);
+console.log('Servidor arrancado');
 
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hola desde Node\n');
-}).listen(port, host);
+function procesa(request, response) {
+    let url = request.url;
+    console.log(`URL solicitada: ${url}`);
+    response.end("Hola");
+}
 
-console.log('Servidor arrancado en ' + host + ':' + port + '/');
 

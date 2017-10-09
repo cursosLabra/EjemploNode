@@ -16,6 +16,8 @@ alumnos.push({ "nombre": "Luis", "edad": 34 });
 
 
 exports.getAlumno = function(id,next) {
+  console.log(`Buscando alumno ${id} alumnos:`);
+  console.log(alumnos);
   let alumno = alumnos[id];
   if (alumno == undefined) 
 	  next(new Error("Cannot find record with id " + id));
@@ -51,9 +53,9 @@ exports.modificaAlumno = function(id,nombre,edad,next) {
 };
 
 exports.toHTML = function() {
- return '<ul>' + alumnos.map(function(alumno){
+ return '<ol>' + alumnos.map(function(alumno){
     return '<li>' + alumno.nombre + ' ' + alumno.edad + '</li>';
- }).join('') + '</ul>' ;
+ }).join('') + '</ol>' ;
 }; 
 
 

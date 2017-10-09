@@ -2,40 +2,27 @@ const http = require('http'),
       fs = require('fs'),
       url = require('url'),
       qs = require('querystring');
-const Corrector = require("./Corrector");
 
-const server = http.createServer(function(req, res) {
-			switch (req.method) {
-			case 'POST':
-				var body = '';
-				req.on('data', function(data) {
-					body += data;
-					if (body.length > 1e6)
-						req.connection.destroy();
-				});
-				req.on('end', function() {
-					var POST = qs.parse(body);
-					var enunciado = JSON.parse(POST.enunciado);
-					var examen = JSON.parse(POST.examen);
-					var respuesta = Corrector().corrige(enunciado,examen);
-					res.setHeader("Content-Type", "application/json");
-					res.end(JSON.stringify(respuesta));
-				});
-				break;
-			case 'GET':
-				if (url.parse(req.url, true).pathname == '/') {
-					datos = "<form action=\"procesa\" method=\"POST\">"
-							+ "<label>Enunciado: <textarea name=\"enunciado\" rows=\"5\" cols=\"50\"></textarea></label><br>"
-							+ "<label>Examen: <textarea name=\"examen\" rows=\"5\" cols=\"50\"></textarea></label><br>"
-							+ "<button>Corregir</button></form>"
-					res.end(datos);
-				}
-				break;
-			default:
-				console.log("Método no soportado" + req.method);
-			}
-
+const server = http.createServer((req, res) => {
+ switch (req.method) {
+	case 'POST':
+		var body = '';
+		req.on('data', data => { body += data;
+		if (body.length > 1e6) req.connection.destroy();
 		});
-
-server.listen(3000);
-console.log('Server listenning at  port 3000');
+		req.on('end', () => {
+  		  var POST = qs.parse(body);
+          res.end("Hola " + POST.cliente + "! Tu email es:" + POST.correo);
+		});
+	break;
+	case 'GET':
+		if (url.parse(req.url, true).pathname == '/') {
+          fs.readFile('form.html','utf8',function (err,datos) {
+            res.writeHead(200,'{content-type: text/html}');
+            res.end(datos);
+          });
+		}
+	break;
+ default:
+  console.log("Método no soportado" + req.method);
+}}).listen(3000);

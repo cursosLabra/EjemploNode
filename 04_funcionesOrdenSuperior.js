@@ -8,3 +8,4 @@ let aplica2 = function(f,x) {
 
 console.log(aplica2(suma3,4));
 console.log(aplica2(function (x) { return x * x; },5));
+

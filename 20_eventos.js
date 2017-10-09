@@ -1,15 +1,13 @@
 const http=require('http');
-const options =
- { hostname: 'www.uniovi.es', port: 80, path: '/', method: 'GET' };
+const server = http.createServer();
+server.on('')
+server.on('request', procesa);
+server.listen(3000);
 
-let total='';
-const req = http.request(options, function(response) {
-  response.on("data", function(datos) {
-    total+=datos;
-    console.log("%d bytes recibidos ", datos.length);
-  });
-  response.on("end", function() {
-    console.log("Datos totales = " + total.length);
-  });
-});
+function procesa(request,response) {
+    console.log("URL solicitada = " + request.url);
+    response.setHeader("Content-Type", "text/html");
+    response.write("<p>Hola</p>");
+    response.end();
+}
 req.end();
