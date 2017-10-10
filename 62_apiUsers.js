@@ -13,3 +13,5 @@ app.get('/users', function (req,res) {
 
 app.listen(3000);
 console.log('Express started on port 3000');
+
+module.exports = app;
