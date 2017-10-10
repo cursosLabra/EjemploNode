@@ -2,10 +2,9 @@ const request = require('supertest');
 const express = require('express');
 const app = require('../62_apiUsers');
 
-
 describe('GET /user', function() {
     it('respond with json', function(done) {
-        request(app)
+       request(app)
             .get('/users')
             .set('Accept', 'application/json')
             .expect('Content-Type', /application\/json/)
