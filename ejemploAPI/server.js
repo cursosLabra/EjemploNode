@@ -65,9 +65,10 @@ app.listen(port);
 console.log('Servidor arrancado en puerto ' + port);
 
 function findById(alumnos,id,next) {
- for (var i=0; len = alumnos.length; i < len; i++) {
+ let len = alumnos.length;	
+ for (var i=0; i < len; i++) {
         if (alumnos[i].id === id) {
             next(alumnos[i]);
         }
-		
+ }
 }
