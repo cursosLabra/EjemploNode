@@ -6,7 +6,7 @@ const http = require('http'),
 const server = http.createServer((req, res) => {
  switch (req.method) {
 	case 'POST':
-		var body = '';
+		let body = '';
 		req.on('data', data => { body += data;
 		if (body.length > 1e6) req.connection.destroy();
 		});
