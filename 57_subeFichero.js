@@ -1,4 +1,7 @@
-const formidable = require('formidable'), fs = require('fs'), http = require('http')
+const formidable = require('formidable'),
+      fs = require('fs'),
+      http = require('http')
+
 http.createServer((req, resp) => {
     switch (req.method) {
         case 'GET':  pideFichero(req,resp); break;

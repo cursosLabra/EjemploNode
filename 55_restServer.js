@@ -1,15 +1,15 @@
-var http= require('http'),
-    url = require('url'),
-    qs  = require('querystring');
+const http= require('http'),
+      url = require('url'),
+      qs  = require('querystring');
 
-var alumnos = require('./alumnos.js');
+const alumnos = require('./alumnos.js');
 
 http.createServer(procesa).listen(3000);
 console.log("Servidor arrancado");
 
 function procesa(req,resp) {
-    var urlparsed = url.parse(req.url,true);
-    var id = urlparsed.query['id'];
+    const urlparsed = url.parse(req.url,true);
+    const id = urlparsed.query['id'];
 
     switch (req.method) {
         case 'GET':
@@ -50,7 +50,7 @@ function listarAlumno(id,req,resp) {
 }
 
 function showAlumnos(req,resp) {
-    var accept = req.headers["accept"];
+    const accept = req.headers["accept"];
     console.log("Accept = " + accept);
     resp.setHeader('content-type','text/html');
     resp.end(alumnos.toHTML());
@@ -65,7 +65,7 @@ function borrarAlumno(id,req,resp) {
 }
 
 function crearAlumno(post,req,resp) {
-    var nombre = post.nombre, edad = post.edad;
+    const nombre = post.nombre, edad = post.edad;
     console.log("Creando alumno " + nombre + ", edad= " + edad);
     alumnos.insertaAlumno(nombre, edad, function(err,alumnos) {
         if (err) notAllowed("No se puede crear alumno", resp);
@@ -74,7 +74,7 @@ function crearAlumno(post,req,resp) {
 }
 
 function modificarAlumno(post,id,req,resp) {
-    var nombre = post.nombre, edad = post.edad;
+    const nombre = post.nombre, edad = post.edad;
     alumnos.modificaAlumno(id,nombre,edad,function(err,als) {
         if (err) notAllowed("No se puede modificar alumno " + id,resp);
         else showAlumnos(req,resp);
@@ -89,7 +89,7 @@ function notAllowed(msg, resp) {
 }
 
 function parseBody(req, resp, next) {
-    var body = '';
+    let body = '';
     req.on('data', function (data) {
         body += data;
         if (body.length > 1e6) {
@@ -98,7 +98,7 @@ function parseBody(req, resp, next) {
         }
     });
     req.on('end', function () {
-        var post = qs.parse(body);
+        const post = qs.parse(body);
         next(post,req,resp);
     });
 }
