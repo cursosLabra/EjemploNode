@@ -1,8 +1,8 @@
-const http=require('http');
+const http = require('http');
 const server = http.createServer();
-server.on('')
-server.on('request', procesa);
+server.on('request',procesa);
 server.listen(3000);
+console.log('Servidor arrancado');
 
 function procesa(request,response) {
     console.log("URL solicitada = " + request.url);
@@ -10,4 +10,4 @@ function procesa(request,response) {
     response.write("<p>Hola</p>");
     response.end();
 }
-req.end();
+

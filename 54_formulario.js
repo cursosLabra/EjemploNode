@@ -18,7 +18,7 @@ const server = http.createServer((req, res) => {
 	case 'GET':
 		if (url.parse(req.url, true).pathname == '/') {
           fs.readFile('form.html','utf8',function (err,datos) {
-            res.writeHead(200,'{content-type: text/html}');
+            res.setHeader('content-type', 'text/html');
             res.end(datos);
           });
 		}

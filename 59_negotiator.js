@@ -12,7 +12,13 @@ function showAlumnos(req,resp) {
     switch (mediaType) {
         case 'application/xml':
             resp.setHeader('content-type',mediaType);
-            resp.end(alumnos.toXML);
+            console.log("XML...")
+            resp.end(alumnos.toXML());
+            break;
+        case 'application/json':
+            resp.setHeader('content-type',mediaType);
+            console.log("JSON...")
+            resp.end(alumnos.toJson());
             break;
         case 'text/html':
             resp.setHeader('content-type', mediaType);

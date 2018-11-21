@@ -1,6 +1,11 @@
 const fs = require('fs');
 
-const input  = process.argv[2], output = process.argv[3];
+if (process.argv.length != 4) {
+    console.log(`Usage: ${process.argv[0]} ${process.argv[1]}: file1 file2`);
+} else {
+
+const input  = process.argv[2];
+const output = process.argv[3];
 
 fs.readFile(input, 'utf8', function(err, datos) {
  if (err) throw "Cannot read " + input + "\n" + err;
@@ -13,3 +18,4 @@ fs.readFile(input, 'utf8', function(err, datos) {
 		
 console.log("Loading..." + input);
 
+}

@@ -1,13 +1,14 @@
-function prueba(callback) {
- setTimeout(callback, 500);
+function prueba(f,x) {
+ setTimeout(f, 500);
 }
 
 let color = 'azul';
 
-function verColor() { console.log(`El color es ${color}`); }
+function verColor(x) { 
+ console.log(`verColor(${x}): ${color}`); 
+}
 
-verColor();
-prueba(verColor);
-
+verColor(1);
+prueba(() => verColor(2));
 color = 'verde';
-verColor();
+verColor(3);
